@@ -48,6 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
             initialDisplayDate: DateTime(2022, 05, 12, 8, 00),
             todayHighlightColor: Colors.red,
             showCurrentTimeIndicator: true,
+            showNavigationArrow: true,
+            cellBorderColor: Colors.blue,
             dataSource: _getCalendarDataSource(),
           ),
         ),
@@ -55,16 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
-  MeetingDataSource _getCalendarDataSource() {
-    List<Meeting> meetings = <Meeting>[];
-    meetings.add(Meeting(
-        eventName: 'meeting',
-        from: DateTime(2019, 12, 18, 10),
-        to: DateTime(2019, 12, 18, 12),
-        background: Colors.green,
-        isAllDay: false,
-    return MeetingDataSource(meetings);
   }}
 
 class MeetingDataSource extends CalendarDataSource {
