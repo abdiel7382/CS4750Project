@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() {
-  return runApp(CalendarApp());
+  return runApp(TimeClockCalendar());
 }
 
 /// The app which hosts the home page
-class CalendarApp extends StatelessWidget {
+class TimeClockCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(title: 'Calendar', debugShowCheckedModeBanner: false, home: MyHomePage());
@@ -64,7 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
         to: DateTime(2019, 12, 18, 12),
         background: Colors.green,
         isAllDay: false,
-        recurrenceRule: 'FREQ=WEEKLY;BYDAY=MO,WE,FR;INTERVAL=1;COUNT=10'));
     return MeetingDataSource(meetings);
   }}
 
@@ -97,11 +96,6 @@ class MeetingDataSource extends CalendarDataSource {
   Color getColor(int index) {
     return appointments![index].background;
   }
-
-  @override
-  String getRecurrenceRule(int index) {
-    return appointments![index].recurrenceRule;
-  }
 }
 
 class Meeting {
@@ -110,12 +104,12 @@ class Meeting {
     required this.to,
     required this.background,
     this.isAllDay = false,
-    this.recurrenceRule});
+
 
   String eventName;
   DateTime from;
   DateTime to;
   Color background;
   bool isAllDay;
-  String? recurrenceRule;
+
 }
